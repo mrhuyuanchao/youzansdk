@@ -4,7 +4,6 @@ import "net/url"
 
 // BaseRequest ..
 type BaseRequest interface {
-	GetURL() string
 	GetMethod() string
 	GetApiName() string
 	GetApiVersion() string

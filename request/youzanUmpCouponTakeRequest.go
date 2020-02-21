@@ -14,9 +14,6 @@ type YouzanUmpCouponTakeRequest struct {
 	WeixinOpenID  string
 }
 
-func (y YouzanUmpCouponTakeRequest) GetURL() string {
-	return "https://open.youzan.com/api/oauthentry"
-}
 func (y YouzanUmpCouponTakeRequest) GetMethod() string {
 	return "GET"
 }

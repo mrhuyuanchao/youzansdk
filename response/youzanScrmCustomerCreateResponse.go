@@ -1,11 +1,8 @@
 package response
 
-type YouzanScrmCustomerCreateResponse struct {
-	BaseResponse
-	Response CustomerCreateInfo `json:"response"`
-}
+import "github.com/mrhuyuanchao/youzansdk/domain"
 
-type CustomerCreateInfo struct {
-	AccountID   string `json:"account_id"`
-	AccountType string `json:"account_type"`
+type YouzanScrmCustomerCreateResponse struct {
+	baseResponse
+	Data domain.CustomerCreateInfo `json:"data"`
 }

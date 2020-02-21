@@ -41,9 +41,6 @@ type YouzanUmpPromocardAddRequest struct {
 	WeixinTitle        string
 }
 
-func (y YouzanUmpPromocardAddRequest) GetURL() string {
-	return "https://open.youzan.com/api/oauthentry"
-}
 func (y YouzanUmpPromocardAddRequest) GetMethod() string {
 	return "GET"
 }

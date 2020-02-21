@@ -10,9 +10,6 @@ type YouzanScrmCustomerGetRequest struct {
 	AccountType string `json:"account_type"`
 }
 
-func (y YouzanScrmCustomerGetRequest) GetURL() string {
-	return "https://open.youzan.com/api/oauthentry"
-}
 func (y YouzanScrmCustomerGetRequest) GetMethod() string {
 	return "GET"
 }

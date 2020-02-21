@@ -11,10 +11,6 @@ type CustomerCreateModel struct {
 	Gender   int    `json:"gender"`
 	Name     string `json:"name"`
 }
-type ContactAddress struct {
-	Address  string `json:"address"`
-	AreaCode string `json:"area_code"`
-}
 
 // YouzanScrmCustomerCreateRequest ..
 type YouzanScrmCustomerCreateRequest struct {
@@ -22,9 +18,6 @@ type YouzanScrmCustomerCreateRequest struct {
 	CreateModel CustomerCreateModel
 }
 
-func (y YouzanScrmCustomerCreateRequest) GetURL() string {
-	return "https://open.youzan.com/api/oauthentry"
-}
 func (y YouzanScrmCustomerCreateRequest) GetMethod() string {
 	return "POSTFORM"
 }

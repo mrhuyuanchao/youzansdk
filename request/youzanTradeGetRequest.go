@@ -10,9 +10,6 @@ type YouzanTradeGetRequest struct {
 	Tid string
 }
 
-func (y YouzanTradeGetRequest) GetURL() string {
-	return "https://open.youzan.com/api/oauthentry"
-}
 func (y YouzanTradeGetRequest) GetMethod() string {
 	return "GET"
 }

@@ -1,12 +1,7 @@
 package response
 
-type BaseResponse struct {
-	Error ErrorInfo `json:"error_response"`
-}
-
-// ErrorInfo ...
-type ErrorInfo struct {
-	Msg     string `json:"msg"`
-	Code    int    `json:"code"`
+type baseResponse struct {
+	Code    string `json:"code"`
+	Success bool   `json:"success"`
 	Message string `json:"message"`
 }
