@@ -10,7 +10,7 @@ type YouzanItemGetResponse struct {
 			Skus                 []domain.Sku                `json:"skus"`
 			PurchaseRight        bool                        `json:"purchase_right"`
 			SkuImages            []domain.SkuImage           `json:"sku_images"`
-			PurchaseRightList    []domain.PurchaseRight      `json:"purchase_right_list"`
+			PurchaseRightList    domain.PurchaseRight        `json:"purchase_right_list"`
 			Desc                 string                      `json:"desc"`
 			Price                int64                       `json:"price"`
 			DeliveryTemplateInfo domain.DeliveryTemplateInfo `json:"delivery_template_info"`
