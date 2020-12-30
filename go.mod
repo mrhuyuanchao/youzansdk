@@ -1,3 +1,3 @@
-module github.com/mrhuyuanchao/youzansdk
+module github.com/lscgzwd/youzansdk
 
-go 1.12
+go 1.15

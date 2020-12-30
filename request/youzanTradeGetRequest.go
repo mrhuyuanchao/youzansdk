@@ -2,6 +2,7 @@ package request
 
 import (
 	"errors"
+	"fmt"
 	"net/url"
 )
 
@@ -11,7 +12,7 @@ type YouzanTradeGetRequest struct {
 }
 
 func (y YouzanTradeGetRequest) GetMethod() string {
-	return "GET"
+	return "POST"
 }
 func (y YouzanTradeGetRequest) GetApiName() string {
 	return "youzan.trade.get"
@@ -20,12 +21,12 @@ func (y YouzanTradeGetRequest) GetApiVersion() string {
 	return "4.0.0"
 }
 func (y YouzanTradeGetRequest) GetParam() map[string]string {
-	param := make(map[string]string, 0)
-	param["tid"] = y.Tid
-	return param
+	return nil
 }
 func (y YouzanTradeGetRequest) GetBodyParam() interface{} {
-	return nil
+	param := make(map[string]interface{}, 0)
+	param["tid"] = y.Tid
+	return param
 }
 
 func (y YouzanTradeGetRequest) CheckParam() error {
@@ -36,4 +37,8 @@ func (y YouzanTradeGetRequest) CheckParam() error {
 }
 func (y YouzanTradeGetRequest) GetUrlValues() url.Values {
 	return nil
+}
+
+func (y YouzanTradeGetRequest) GetRequestUrl(token string) string {
+	return fmt.Sprintf(apiRequestPath, youzanApiBaseUrl, y.GetApiName(), y.GetApiVersion(), token)
 }

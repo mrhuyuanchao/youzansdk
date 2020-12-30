@@ -2,6 +2,7 @@ package request
 
 import (
 	"errors"
+	"fmt"
 	"net/url"
 )
 
@@ -23,8 +24,7 @@ func (y YouzanItemQuantityUpdateRequest) GetApiVersion() string {
 	return "3.0.0"
 }
 func (y YouzanItemQuantityUpdateRequest) GetParam() map[string]string {
-	param := make(map[string]string, 0)
-	return param
+	return nil
 }
 func (y YouzanItemQuantityUpdateRequest) GetBodyParam() interface{} {
 	param := make(map[string]interface{}, 0)
@@ -47,4 +47,8 @@ func (y YouzanItemQuantityUpdateRequest) CheckParam() error {
 		return errors.New("item_id不能为空")
 	}
 	return nil
+}
+
+func (y YouzanItemQuantityUpdateRequest) GetRequestUrl(token string) string {
+	return fmt.Sprintf(apiRequestPath, youzanApiBaseUrl, y.GetApiName(), y.GetApiVersion(), token)
 }

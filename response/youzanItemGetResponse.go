@@ -1,6 +1,6 @@
 package response
 
-import "github.com/mrhuyuanchao/youzansdk/domain"
+import "github.com/lscgzwd/youzansdk/domain"
 
 type YouzanItemGetResponse struct {
 	baseResponse

@@ -10,7 +10,7 @@ import (
 )
 
 // HTTP 执行HTTP请求
-func HTTP(requesturl, method string, body interface{}, params map[string]string, headers map[string]string) (*http.Response, error) {
+func HTTP(requestUrl, method string, body interface{}, params map[string]string, headers map[string]string) (*http.Response, error) {
 	var bodyJSON []byte
 	var req *http.Request
 	if body != nil {
@@ -21,7 +21,7 @@ func HTTP(requesturl, method string, body interface{}, params map[string]string,
 		}
 	}
 
-	req, err := http.NewRequest(method, requesturl, bytes.NewBuffer(bodyJSON))
+	req, err := http.NewRequest(method, requestUrl, bytes.NewBuffer(bodyJSON))
 	if err != nil {
 		return nil, errors.New("new request is fail")
 	}

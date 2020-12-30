@@ -42,7 +42,7 @@ type YouzanUmpPromocardAddRequest struct {
 }
 
 func (y YouzanUmpPromocardAddRequest) GetMethod() string {
-	return "GET"
+	return "POST"
 }
 func (y YouzanUmpPromocardAddRequest) GetApiName() string {
 	return "youzan.ump.promocard.add"
@@ -51,7 +51,10 @@ func (y YouzanUmpPromocardAddRequest) GetApiVersion() string {
 	return "3.0.0"
 }
 func (y YouzanUmpPromocardAddRequest) GetParam() map[string]string {
-	param := make(map[string]string, 0)
+	return nil
+}
+func (y YouzanUmpPromocardAddRequest) GetBodyParam() interface{} {
+	param := make(map[string]interface{}, 0)
 	param["end_at"] = y.Endat
 	param["start_at"] = y.StartAt
 	param["title"] = y.Title
@@ -102,9 +105,6 @@ func (y YouzanUmpPromocardAddRequest) GetParam() map[string]string {
 	}
 	return param
 }
-func (y YouzanUmpPromocardAddRequest) GetBodyParam() interface{} {
-	return nil
-}
 
 func (y YouzanUmpPromocardAddRequest) CheckParam() error {
 	if y.DateType == 0 {
@@ -146,4 +146,8 @@ func (y YouzanUmpPromocardAddRequest) CheckParam() error {
 
 func (y YouzanUmpPromocardAddRequest) GetUrlValues() url.Values {
 	return nil
+}
+
+func (y YouzanUmpPromocardAddRequest) GetRequestUrl(token string) string {
+	return fmt.Sprintf(apiRequestPath, youzanApiBaseUrl, y.GetApiName(), y.GetApiVersion(), token)
 }

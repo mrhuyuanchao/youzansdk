@@ -1,6 +1,7 @@
 package request
 
 import (
+	"fmt"
 	"net/url"
 	"strconv"
 )
@@ -17,7 +18,7 @@ type YouzanItemsOnsaleGetRequest struct {
 }
 
 func (y YouzanItemsOnsaleGetRequest) GetMethod() string {
-	return "GET"
+	return "POST"
 }
 func (y YouzanItemsOnsaleGetRequest) GetApiName() string {
 	return "youzan.items.onsale.get"
@@ -26,7 +27,10 @@ func (y YouzanItemsOnsaleGetRequest) GetApiVersion() string {
 	return "3.0.0"
 }
 func (y YouzanItemsOnsaleGetRequest) GetParam() map[string]string {
-	param := make(map[string]string, 0)
+	return nil
+}
+func (y YouzanItemsOnsaleGetRequest) GetBodyParam() interface{} {
+	param := make(map[string]interface{}, 0)
 	if y.OrderBy != "" {
 		param["order_by"] = y.OrderBy
 	}
@@ -50,9 +54,6 @@ func (y YouzanItemsOnsaleGetRequest) GetParam() map[string]string {
 	}
 	return param
 }
-func (y YouzanItemsOnsaleGetRequest) GetBodyParam() interface{} {
-	return nil
-}
 
 func (y YouzanItemsOnsaleGetRequest) GetUrlValues() url.Values {
 	u := url.Values{}
@@ -61,4 +62,8 @@ func (y YouzanItemsOnsaleGetRequest) GetUrlValues() url.Values {
 
 func (y YouzanItemsOnsaleGetRequest) CheckParam() error {
 	return nil
+}
+
+func (y YouzanItemsOnsaleGetRequest) GetRequestUrl(token string) string {
+	return fmt.Sprintf(apiRequestPath, youzanApiBaseUrl, y.GetApiName(), y.GetApiVersion(), token)
 }

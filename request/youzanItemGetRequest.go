@@ -2,6 +2,7 @@ package request
 
 import (
 	"errors"
+	"fmt"
 	"net/url"
 	"strconv"
 )
@@ -13,7 +14,7 @@ type YouzanItemGetRequest struct {
 }
 
 func (y YouzanItemGetRequest) GetMethod() string {
-	return "GET"
+	return "POST"
 }
 func (y YouzanItemGetRequest) GetApiName() string {
 	return "youzan.item.get"
@@ -22,7 +23,10 @@ func (y YouzanItemGetRequest) GetApiVersion() string {
 	return "3.0.0"
 }
 func (y YouzanItemGetRequest) GetParam() map[string]string {
-	param := make(map[string]string, 0)
+	return nil
+}
+func (y YouzanItemGetRequest) GetBodyParam() interface{} {
+	param := make(map[string]interface{}, 0)
 	if y.ItemID != 0 {
 		param["item_id"] = strconv.FormatInt(y.ItemID, 10)
 	}
@@ -30,9 +34,6 @@ func (y YouzanItemGetRequest) GetParam() map[string]string {
 		param["alias"] = y.Alias
 	}
 	return param
-}
-func (y YouzanItemGetRequest) GetBodyParam() interface{} {
-	return nil
 }
 
 func (y YouzanItemGetRequest) GetUrlValues() url.Values {
@@ -45,4 +46,8 @@ func (y YouzanItemGetRequest) CheckParam() error {
 		return errors.New("item_id和alias不能同时为空")
 	}
 	return nil
+}
+
+func (y YouzanItemGetRequest) GetRequestUrl(token string) string {
+	return fmt.Sprintf(apiRequestPath, youzanApiBaseUrl, y.GetApiName(), y.GetApiVersion(), token)
 }
