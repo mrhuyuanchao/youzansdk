@@ -7,7 +7,7 @@ import (
 	"time"
 )
 
-// YouzanCrmCustomerPointsDecreaseRequest 获取单个商品信息
+// YouzanCrmCustomerPointsDecreaseRequest 扣除用户积分
 type YouzanCrmCustomerPointsDecreaseRequest struct {
 	Reason    string
 	KdtID     int64

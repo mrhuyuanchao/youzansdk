@@ -6,7 +6,7 @@ import (
 	"net/url"
 )
 
-// YouzanAppStoreOpenUserGetRequest 获取单个商品信息
+// YouzanAppStoreOpenUserGetRequest 通过new_user_token获取用户信息
 type YouzanAppStoreOpenUserGetRequest struct {
 	UserToken string
 }

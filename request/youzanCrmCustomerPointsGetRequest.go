@@ -6,7 +6,7 @@ import (
 	"net/url"
 )
 
-// YouzanCrmCustomerPointsGetRequest 获取单个商品信息
+// YouzanCrmCustomerPointsGetRequest 获取用户积分
 type YouzanCrmCustomerPointsGetRequest struct {
 	User struct {
 		AccountType int8   `json:"account_type"`
