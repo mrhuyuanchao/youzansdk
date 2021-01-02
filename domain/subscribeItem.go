@@ -11,41 +11,46 @@ type SubscribeItem struct {
 	//生效时间， Unix时间戳，单位：毫秒
 	//1558949704000
 	EffectTime int64 `json:"effect_time"`
-	//status
-	//java.lang.Integer
-	//支付状态：10-未支付，20-已支付
-	//20
-	Status int8 `json:"status"`
-	//price
-	//java.lang.Long
-	//支付价格，单位：分
-	//99
-	Price int32 `json:"price"`
 	//expire_time
 	//java.lang.Long
 	//过期时间 ，Unix时间戳，单位：毫秒
 	//1558949704000
 	ExpireTime int64 `json:"expire_time"`
-	//buyer_phone
-	//java.lang.String
-	//订购人手机号
-	//135xxxx1234
-	BuyerPhone string `json:"buyer_phone"`
 	//pay_time
 	//java.lang.Long
 	//支付时间， Unix时间戳，单位：毫秒
 	//1558949704000
 	PayTime int64 `json:"pay_time"`
-	//shop_dis_play_no
-	//java.lang.String
-	//订购店铺编号
-	//48567648
-	ShopDisPlayNo string `json:"shop_dis_play_no"`
 	//buyer_id
 	//java.lang.Long
 	//订购人id
 	//865115939
 	BuyerID int64 `json:"buyer_id"`
+	//app_id
+	//java.lang.Long
+	//应用id
+	//42516
+	AppID int64 `json:"app_id"`
+	//price
+	//java.lang.Long
+	//支付价格，单位：分
+	//99
+	Price int32 `json:"price"`
+	//status
+	//java.lang.Integer
+	//支付状态：10-未支付，20-已支付
+	//20
+	Status int8 `json:"status"`
+	//buyer_phone
+	//java.lang.String
+	//订购人手机号
+	//135xxxx1234
+	BuyerPhone string `json:"buyer_phone"`
+	//shop_dis_play_no
+	//java.lang.String
+	//订购店铺编号
+	//48567648
+	ShopDisPlayNo string `json:"shop_dis_play_no"`
 	//out_item_id
 	//java.lang.String
 	//外部商品编码
@@ -56,11 +61,6 @@ type SubscribeItem struct {
 	//订单编号
 	//E20190509181910080300061
 	OrderNO string `json:"order_no"`
-	//app_id
-	//java.lang.Long
-	//应用id
-	//42516
-	AppID int64 `json:"app_id"`
 	// SkuIntervalText sku_interval_text
 	SkuIntervalText string `json:"sku_interval_text"`
 	// SkuVersionText sku_version_text

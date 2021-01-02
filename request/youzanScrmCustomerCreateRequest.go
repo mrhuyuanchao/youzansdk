@@ -19,23 +19,23 @@ type YouzanScrmCustomerCreateRequest struct {
 	CreateModel CustomerCreateModel
 }
 
-func (y YouzanScrmCustomerCreateRequest) GetMethod() string {
+func (y *YouzanScrmCustomerCreateRequest) GetMethod() string {
 	return "POST"
 }
-func (y YouzanScrmCustomerCreateRequest) GetApiName() string {
+func (y *YouzanScrmCustomerCreateRequest) GetApiName() string {
 	return "youzan.scrm.customer.create"
 }
-func (y YouzanScrmCustomerCreateRequest) GetApiVersion() string {
+func (y *YouzanScrmCustomerCreateRequest) GetApiVersion() string {
 	return "3.0.0"
 }
-func (y YouzanScrmCustomerCreateRequest) GetParam() map[string]string {
+func (y *YouzanScrmCustomerCreateRequest) GetParam() map[string]string {
 	return nil
 }
-func (y YouzanScrmCustomerCreateRequest) GetBodyParam() interface{} {
+func (y *YouzanScrmCustomerCreateRequest) GetBodyParam() interface{} {
 	return nil
 }
 
-func (y YouzanScrmCustomerCreateRequest) GetUrlValues() url.Values {
+func (y *YouzanScrmCustomerCreateRequest) GetUrlValues() url.Values {
 	u := url.Values{}
 	u.Set("mobile", y.Mobile)
 	content := "{}"
@@ -48,13 +48,13 @@ func (y YouzanScrmCustomerCreateRequest) GetUrlValues() url.Values {
 	return u
 }
 
-func (y YouzanScrmCustomerCreateRequest) CheckParam() error {
+func (y *YouzanScrmCustomerCreateRequest) CheckParam() error {
 	if y.Mobile == "" {
 		return errors.New("手机号不能为空")
 	}
 	return nil
 }
 
-func (y YouzanScrmCustomerCreateRequest) GetRequestUrl(token string) string {
+func (y *YouzanScrmCustomerCreateRequest) GetRequestUrl(token string) string {
 	return fmt.Sprintf(apiRequestPath, youzanApiBaseUrl, y.GetApiName(), y.GetApiVersion(), token)
 }

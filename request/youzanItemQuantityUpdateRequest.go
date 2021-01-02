@@ -14,19 +14,19 @@ type YouzanItemQuantityUpdateRequest struct {
 	Type     int
 }
 
-func (y YouzanItemQuantityUpdateRequest) GetMethod() string {
+func (y *YouzanItemQuantityUpdateRequest) GetMethod() string {
 	return "POST"
 }
-func (y YouzanItemQuantityUpdateRequest) GetApiName() string {
+func (y *YouzanItemQuantityUpdateRequest) GetApiName() string {
 	return "youzan.item.quantity.update"
 }
-func (y YouzanItemQuantityUpdateRequest) GetApiVersion() string {
+func (y *YouzanItemQuantityUpdateRequest) GetApiVersion() string {
 	return "3.0.0"
 }
-func (y YouzanItemQuantityUpdateRequest) GetParam() map[string]string {
+func (y *YouzanItemQuantityUpdateRequest) GetParam() map[string]string {
 	return nil
 }
-func (y YouzanItemQuantityUpdateRequest) GetBodyParam() interface{} {
+func (y *YouzanItemQuantityUpdateRequest) GetBodyParam() interface{} {
 	param := make(map[string]interface{}, 0)
 	param["item_id"] = y.ItemID
 	param["quantity"] = y.Quantity
@@ -37,18 +37,18 @@ func (y YouzanItemQuantityUpdateRequest) GetBodyParam() interface{} {
 	return param
 }
 
-func (y YouzanItemQuantityUpdateRequest) GetUrlValues() url.Values {
+func (y *YouzanItemQuantityUpdateRequest) GetUrlValues() url.Values {
 	u := url.Values{}
 	return u
 }
 
-func (y YouzanItemQuantityUpdateRequest) CheckParam() error {
+func (y *YouzanItemQuantityUpdateRequest) CheckParam() error {
 	if y.ItemID == 0 {
 		return errors.New("item_id不能为空")
 	}
 	return nil
 }
 
-func (y YouzanItemQuantityUpdateRequest) GetRequestUrl(token string) string {
+func (y *YouzanItemQuantityUpdateRequest) GetRequestUrl(token string) string {
 	return fmt.Sprintf(apiRequestPath, youzanApiBaseUrl, y.GetApiName(), y.GetApiVersion(), token)
 }

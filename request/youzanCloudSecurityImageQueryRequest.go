@@ -13,19 +13,19 @@ type YouzanCloudSecurityImageQueryRequest struct {
 	RequestID string
 }
 
-func (y YouzanCloudSecurityImageQueryRequest) GetMethod() string {
+func (y *YouzanCloudSecurityImageQueryRequest) GetMethod() string {
 	return "POST"
 }
-func (y YouzanCloudSecurityImageQueryRequest) GetApiName() string {
+func (y *YouzanCloudSecurityImageQueryRequest) GetApiName() string {
 	return "youzan.crm.customer.points.decrease"
 }
-func (y YouzanCloudSecurityImageQueryRequest) GetApiVersion() string {
+func (y *YouzanCloudSecurityImageQueryRequest) GetApiVersion() string {
 	return "1.0.0"
 }
-func (y YouzanCloudSecurityImageQueryRequest) GetParam() map[string]string {
+func (y *YouzanCloudSecurityImageQueryRequest) GetParam() map[string]string {
 	return nil
 }
-func (y YouzanCloudSecurityImageQueryRequest) GetBodyParam() interface{} {
+func (y *YouzanCloudSecurityImageQueryRequest) GetBodyParam() interface{} {
 	param := make(map[string]interface{}, 0)
 	if y.RequestID != "" {
 		param["data_id"] = y.RequestID
@@ -36,18 +36,18 @@ func (y YouzanCloudSecurityImageQueryRequest) GetBodyParam() interface{} {
 	return param
 }
 
-func (y YouzanCloudSecurityImageQueryRequest) GetUrlValues() url.Values {
+func (y *YouzanCloudSecurityImageQueryRequest) GetUrlValues() url.Values {
 	u := url.Values{}
 	return u
 }
 
-func (y YouzanCloudSecurityImageQueryRequest) CheckParam() error {
+func (y *YouzanCloudSecurityImageQueryRequest) CheckParam() error {
 	if y.ImageUrl == "" {
 		return errors.New("请输入需要检测的图片地址")
 	}
 	return nil
 }
 
-func (y YouzanCloudSecurityImageQueryRequest) GetRequestUrl(token string) string {
+func (y *YouzanCloudSecurityImageQueryRequest) GetRequestUrl(token string) string {
 	return fmt.Sprintf(apiRequestPath, youzanApiBaseUrl, y.GetApiName(), y.GetApiVersion(), token)
 }

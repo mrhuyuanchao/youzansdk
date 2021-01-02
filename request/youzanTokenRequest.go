@@ -6,7 +6,8 @@ import (
 	"net/url"
 )
 
-type youzanTokenRequest struct {
+// YouzanTokenRequest ...
+type YouzanTokenRequest struct {
 	//'client_id' => $this->clientId,
 	//            'client_secret' => $this->clientSecret,
 	// 'authorize_type' => 'silent',
@@ -25,19 +26,19 @@ type youzanTokenRequest struct {
 	Code          string
 }
 
-func (y youzanTokenRequest) GetMethod() string {
+func (y *YouzanTokenRequest) GetMethod() string {
 	return "POST"
 }
-func (y youzanTokenRequest) GetApiName() string {
+func (y *YouzanTokenRequest) GetApiName() string {
 	return ""
 }
-func (y youzanTokenRequest) GetApiVersion() string {
+func (y *YouzanTokenRequest) GetApiVersion() string {
 	return ""
 }
-func (y youzanTokenRequest) GetParam() map[string]string {
+func (y *YouzanTokenRequest) GetParam() map[string]string {
 	return nil
 }
-func (y youzanTokenRequest) GetBodyParam() interface{} {
+func (y *YouzanTokenRequest) GetBodyParam() interface{} {
 	param := make(map[string]interface{}, 0)
 	switch y.AuthorizeType {
 	case "authorization_code":
@@ -69,12 +70,12 @@ func (y youzanTokenRequest) GetBodyParam() interface{} {
 	return param
 }
 
-func (y youzanTokenRequest) GetUrlValues() url.Values {
+func (y *YouzanTokenRequest) GetUrlValues() url.Values {
 	u := url.Values{}
 	return u
 }
 
-func (y youzanTokenRequest) CheckParam() error {
+func (y *YouzanTokenRequest) CheckParam() error {
 	if y.ClientID == "" && y.ClientSecret == "" {
 		return errors.New("client_id和client_secret不能为空")
 	}
@@ -110,6 +111,6 @@ func (y youzanTokenRequest) CheckParam() error {
 	return nil
 }
 
-func (y youzanTokenRequest) GetRequestUrl(token string) string {
+func (y *YouzanTokenRequest) GetRequestUrl(token string) string {
 	return fmt.Sprintf(apiRequestPathToken, youzanApiBaseUrl)
 }

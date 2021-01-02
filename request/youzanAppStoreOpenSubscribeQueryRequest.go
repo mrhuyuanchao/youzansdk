@@ -18,19 +18,19 @@ type YouzanAppStoreOpenSubscribeQueryRequest struct {
 	PageSize int8
 }
 
-func (y YouzanAppStoreOpenSubscribeQueryRequest) GetMethod() string {
+func (y *YouzanAppStoreOpenSubscribeQueryRequest) GetMethod() string {
 	return "POST"
 }
-func (y YouzanAppStoreOpenSubscribeQueryRequest) GetApiName() string {
+func (y *YouzanAppStoreOpenSubscribeQueryRequest) GetApiName() string {
 	return "youzan.appstore.open.subscribe.query"
 }
-func (y YouzanAppStoreOpenSubscribeQueryRequest) GetApiVersion() string {
+func (y *YouzanAppStoreOpenSubscribeQueryRequest) GetApiVersion() string {
 	return "1.0.0"
 }
-func (y YouzanAppStoreOpenSubscribeQueryRequest) GetParam() map[string]string {
+func (y *YouzanAppStoreOpenSubscribeQueryRequest) GetParam() map[string]string {
 	return nil
 }
-func (y YouzanAppStoreOpenSubscribeQueryRequest) GetBodyParam() interface{} {
+func (y *YouzanAppStoreOpenSubscribeQueryRequest) GetBodyParam() interface{} {
 	param := make(map[string]interface{}, 0)
 	if y.OrderNO != "" {
 		param["order_no"] = y.OrderNO
@@ -51,18 +51,18 @@ func (y YouzanAppStoreOpenSubscribeQueryRequest) GetBodyParam() interface{} {
 	return param
 }
 
-func (y YouzanAppStoreOpenSubscribeQueryRequest) GetUrlValues() url.Values {
+func (y *YouzanAppStoreOpenSubscribeQueryRequest) GetUrlValues() url.Values {
 	u := url.Values{}
 	return u
 }
 
-func (y YouzanAppStoreOpenSubscribeQueryRequest) CheckParam() error {
+func (y *YouzanAppStoreOpenSubscribeQueryRequest) CheckParam() error {
 	if y.PageSize > 100 {
 		return errors.New("每页数据最大不能超过100")
 	}
 	return nil
 }
 
-func (y YouzanAppStoreOpenSubscribeQueryRequest) GetRequestUrl(token string) string {
+func (y *YouzanAppStoreOpenSubscribeQueryRequest) GetRequestUrl(token string) string {
 	return fmt.Sprintf(apiRequestPath, youzanApiBaseUrl, y.GetApiName(), y.GetApiVersion(), token)
 }

@@ -17,19 +17,19 @@ type YouzanItemsOnsaleGetRequest struct {
 	UpdateTimeStart int64
 }
 
-func (y YouzanItemsOnsaleGetRequest) GetMethod() string {
+func (y *YouzanItemsOnsaleGetRequest) GetMethod() string {
 	return "POST"
 }
-func (y YouzanItemsOnsaleGetRequest) GetApiName() string {
+func (y *YouzanItemsOnsaleGetRequest) GetApiName() string {
 	return "youzan.items.onsale.get"
 }
-func (y YouzanItemsOnsaleGetRequest) GetApiVersion() string {
+func (y *YouzanItemsOnsaleGetRequest) GetApiVersion() string {
 	return "3.0.0"
 }
-func (y YouzanItemsOnsaleGetRequest) GetParam() map[string]string {
+func (y *YouzanItemsOnsaleGetRequest) GetParam() map[string]string {
 	return nil
 }
-func (y YouzanItemsOnsaleGetRequest) GetBodyParam() interface{} {
+func (y *YouzanItemsOnsaleGetRequest) GetBodyParam() interface{} {
 	param := make(map[string]interface{}, 0)
 	if y.OrderBy != "" {
 		param["order_by"] = y.OrderBy
@@ -55,15 +55,15 @@ func (y YouzanItemsOnsaleGetRequest) GetBodyParam() interface{} {
 	return param
 }
 
-func (y YouzanItemsOnsaleGetRequest) GetUrlValues() url.Values {
+func (y *YouzanItemsOnsaleGetRequest) GetUrlValues() url.Values {
 	u := url.Values{}
 	return u
 }
 
-func (y YouzanItemsOnsaleGetRequest) CheckParam() error {
+func (y *YouzanItemsOnsaleGetRequest) CheckParam() error {
 	return nil
 }
 
-func (y YouzanItemsOnsaleGetRequest) GetRequestUrl(token string) string {
+func (y *YouzanItemsOnsaleGetRequest) GetRequestUrl(token string) string {
 	return fmt.Sprintf(apiRequestPath, youzanApiBaseUrl, y.GetApiName(), y.GetApiVersion(), token)
 }

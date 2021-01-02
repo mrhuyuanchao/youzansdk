@@ -15,19 +15,19 @@ type YouzanUmpCouponTakeRequest struct {
 	WeixinOpenID  string
 }
 
-func (y YouzanUmpCouponTakeRequest) GetMethod() string {
+func (y *YouzanUmpCouponTakeRequest) GetMethod() string {
 	return "POST"
 }
-func (y YouzanUmpCouponTakeRequest) GetApiName() string {
+func (y *YouzanUmpCouponTakeRequest) GetApiName() string {
 	return "youzan.ump.coupon.take"
 }
-func (y YouzanUmpCouponTakeRequest) GetApiVersion() string {
+func (y *YouzanUmpCouponTakeRequest) GetApiVersion() string {
 	return "3.0.0"
 }
-func (y YouzanUmpCouponTakeRequest) GetParam() map[string]string {
+func (y *YouzanUmpCouponTakeRequest) GetParam() map[string]string {
 	return nil
 }
-func (y YouzanUmpCouponTakeRequest) GetBodyParam() interface{} {
+func (y *YouzanUmpCouponTakeRequest) GetBodyParam() interface{} {
 	param := make(map[string]interface{}, 0)
 	param["coupon_group_id"] = strconv.FormatInt(y.CouponGroupID, 10)
 	if y.FansID != "" {
@@ -45,7 +45,7 @@ func (y YouzanUmpCouponTakeRequest) GetBodyParam() interface{} {
 	return param
 }
 
-func (y YouzanUmpCouponTakeRequest) CheckParam() error {
+func (y *YouzanUmpCouponTakeRequest) CheckParam() error {
 	if y.CouponGroupID == 0 {
 		return errors.New("请设置优惠券ID")
 	}
@@ -54,10 +54,10 @@ func (y YouzanUmpCouponTakeRequest) CheckParam() error {
 	}
 	return nil
 }
-func (y YouzanUmpCouponTakeRequest) GetUrlValues() url.Values {
+func (y *YouzanUmpCouponTakeRequest) GetUrlValues() url.Values {
 	return nil
 }
 
-func (y YouzanUmpCouponTakeRequest) GetRequestUrl(token string) string {
+func (y *YouzanUmpCouponTakeRequest) GetRequestUrl(token string) string {
 	return fmt.Sprintf(apiRequestPath, youzanApiBaseUrl, y.GetApiName(), y.GetApiVersion(), token)
 }

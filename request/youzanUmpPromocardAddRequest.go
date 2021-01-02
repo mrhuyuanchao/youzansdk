@@ -41,19 +41,19 @@ type YouzanUmpPromocardAddRequest struct {
 	WeixinTitle        string
 }
 
-func (y YouzanUmpPromocardAddRequest) GetMethod() string {
+func (y *YouzanUmpPromocardAddRequest) GetMethod() string {
 	return "POST"
 }
-func (y YouzanUmpPromocardAddRequest) GetApiName() string {
+func (y *YouzanUmpPromocardAddRequest) GetApiName() string {
 	return "youzan.ump.promocard.add"
 }
-func (y YouzanUmpPromocardAddRequest) GetApiVersion() string {
+func (y *YouzanUmpPromocardAddRequest) GetApiVersion() string {
 	return "3.0.0"
 }
-func (y YouzanUmpPromocardAddRequest) GetParam() map[string]string {
+func (y *YouzanUmpPromocardAddRequest) GetParam() map[string]string {
 	return nil
 }
-func (y YouzanUmpPromocardAddRequest) GetBodyParam() interface{} {
+func (y *YouzanUmpPromocardAddRequest) GetBodyParam() interface{} {
 	param := make(map[string]interface{}, 0)
 	param["end_at"] = y.Endat
 	param["start_at"] = y.StartAt
@@ -106,7 +106,7 @@ func (y YouzanUmpPromocardAddRequest) GetBodyParam() interface{} {
 	return param
 }
 
-func (y YouzanUmpPromocardAddRequest) CheckParam() error {
+func (y *YouzanUmpPromocardAddRequest) CheckParam() error {
 	if y.DateType == 0 {
 		y.DateType = 1
 	}
@@ -144,10 +144,10 @@ func (y YouzanUmpPromocardAddRequest) CheckParam() error {
 	return nil
 }
 
-func (y YouzanUmpPromocardAddRequest) GetUrlValues() url.Values {
+func (y *YouzanUmpPromocardAddRequest) GetUrlValues() url.Values {
 	return nil
 }
 
-func (y YouzanUmpPromocardAddRequest) GetRequestUrl(token string) string {
+func (y *YouzanUmpPromocardAddRequest) GetRequestUrl(token string) string {
 	return fmt.Sprintf(apiRequestPath, youzanApiBaseUrl, y.GetApiName(), y.GetApiVersion(), token)
 }

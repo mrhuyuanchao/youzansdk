@@ -20,19 +20,19 @@ type YouzanCrmCustomerPointsIncreaseRequest struct {
 	}
 }
 
-func (y YouzanCrmCustomerPointsIncreaseRequest) GetMethod() string {
+func (y *YouzanCrmCustomerPointsIncreaseRequest) GetMethod() string {
 	return "POST"
 }
-func (y YouzanCrmCustomerPointsIncreaseRequest) GetApiName() string {
+func (y *YouzanCrmCustomerPointsIncreaseRequest) GetApiName() string {
 	return "youzan.crm.customer.points.increase"
 }
-func (y YouzanCrmCustomerPointsIncreaseRequest) GetApiVersion() string {
+func (y *YouzanCrmCustomerPointsIncreaseRequest) GetApiVersion() string {
 	return "4.0.0"
 }
-func (y YouzanCrmCustomerPointsIncreaseRequest) GetParam() map[string]string {
+func (y *YouzanCrmCustomerPointsIncreaseRequest) GetParam() map[string]string {
 	return nil
 }
-func (y YouzanCrmCustomerPointsIncreaseRequest) GetBodyParam() interface{} {
+func (y *YouzanCrmCustomerPointsIncreaseRequest) GetBodyParam() interface{} {
 	param := make(map[string]interface{}, 0)
 	if y.RequestID != "" {
 		param["biz_value"] = y.RequestID
@@ -46,12 +46,12 @@ func (y YouzanCrmCustomerPointsIncreaseRequest) GetBodyParam() interface{} {
 	return param
 }
 
-func (y YouzanCrmCustomerPointsIncreaseRequest) GetUrlValues() url.Values {
+func (y *YouzanCrmCustomerPointsIncreaseRequest) GetUrlValues() url.Values {
 	u := url.Values{}
 	return u
 }
 
-func (y YouzanCrmCustomerPointsIncreaseRequest) CheckParam() error {
+func (y *YouzanCrmCustomerPointsIncreaseRequest) CheckParam() error {
 	if y.User.AccountType == 0 && y.User.AccountID == "" {
 		return errors.New("请指定账号类型和账号ID")
 	}
@@ -67,6 +67,6 @@ func (y YouzanCrmCustomerPointsIncreaseRequest) CheckParam() error {
 	return nil
 }
 
-func (y YouzanCrmCustomerPointsIncreaseRequest) GetRequestUrl(token string) string {
+func (y *YouzanCrmCustomerPointsIncreaseRequest) GetRequestUrl(token string) string {
 	return fmt.Sprintf(apiRequestPath, youzanApiBaseUrl, y.GetApiName(), y.GetApiVersion(), token)
 }
