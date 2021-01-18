@@ -1,0 +1,77 @@
+package request
+
+import (
+	"errors"
+	"fmt"
+	"net/url"
+)
+
+// youzanAppStoreOpenTradeCreateRequest 查询应用订购和授权记录
+type youzanAppStoreOpenTradeCreateRequest struct {
+	KdtID      int64
+	UserID     int64
+	Num        int
+	OutItemID  string
+	BuyerPhone string
+	AppID      int64
+	ClientID   string
+}
+
+func (y *youzanAppStoreOpenTradeCreateRequest) GetMethod() string {
+	return "POST"
+}
+func (y *youzanAppStoreOpenTradeCreateRequest) GetApiName() string {
+	return "youzan.appstore.open.trade.create"
+}
+func (y *youzanAppStoreOpenTradeCreateRequest) GetApiVersion() string {
+	return "1.0.2"
+}
+func (y *youzanAppStoreOpenTradeCreateRequest) GetParam() map[string]string {
+	return nil
+}
+func (y *youzanAppStoreOpenTradeCreateRequest) GetBodyParam() interface{} {
+	param := make(map[string]interface{}, 0)
+	if y.KdtID > 0 {
+		param["kdt_id"] = y.KdtID
+	}
+	if y.ClientID != "" {
+		param["client_id"] = y.ClientID
+	}
+	if y.UserID > 0 {
+		param["user_id"] = y.UserID
+	}
+	if y.Num > 0 {
+		param["num"] = y.Num
+	} else {
+		param["num"] = 1
+	}
+	if y.BuyerPhone != "" {
+		param["buyer_phone"] = y.BuyerPhone
+	}
+	param["out_item_id"] = y.OutItemID
+	param["app_id"] = y.AppID
+
+	return param
+}
+
+func (y *youzanAppStoreOpenTradeCreateRequest) GetUrlValues() url.Values {
+	u := url.Values{}
+	return u
+}
+
+func (y *youzanAppStoreOpenTradeCreateRequest) CheckParam() error {
+	if y.AppID < 1 {
+		return errors.New("app_id应用编号必传")
+	}
+	if y.OutItemID == "" {
+		return errors.New("out_item_id外部商品ID必传")
+	}
+	if y.UserID < 1 && y.BuyerPhone == "" {
+		return errors.New("user_id和buyer_phone不能同时为空")
+	}
+	return nil
+}
+
+func (y *youzanAppStoreOpenTradeCreateRequest) GetRequestUrl(token string) string {
+	return fmt.Sprintf(apiRequestPath, youzanApiBaseUrl, y.GetApiName(), y.GetApiVersion(), token)
+}
