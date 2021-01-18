@@ -1,6 +1,6 @@
 package response
 
-// YouzanAppStoreOpenTradeCreateResponse 根据new_user_token拉信息
+// YouzanAppStoreOpenTradeCreateResponse 用于创建应用内购订单
 type YouzanAppStoreOpenTradeCreateResponse struct {
 	baseResponse
 	Data struct {

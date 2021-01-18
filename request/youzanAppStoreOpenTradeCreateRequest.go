@@ -6,8 +6,8 @@ import (
 	"net/url"
 )
 
-// youzanAppStoreOpenTradeCreateRequest 查询应用订购和授权记录
-type youzanAppStoreOpenTradeCreateRequest struct {
+// YouzanAppStoreOpenTradeCreateRequest 用于创建应用内购订单
+type YouzanAppStoreOpenTradeCreateRequest struct {
 	KdtID      int64
 	UserID     int64
 	Num        int
@@ -17,19 +17,19 @@ type youzanAppStoreOpenTradeCreateRequest struct {
 	ClientID   string
 }
 
-func (y *youzanAppStoreOpenTradeCreateRequest) GetMethod() string {
+func (y *YouzanAppStoreOpenTradeCreateRequest) GetMethod() string {
 	return "POST"
 }
-func (y *youzanAppStoreOpenTradeCreateRequest) GetApiName() string {
+func (y *YouzanAppStoreOpenTradeCreateRequest) GetApiName() string {
 	return "youzan.appstore.open.trade.create"
 }
-func (y *youzanAppStoreOpenTradeCreateRequest) GetApiVersion() string {
+func (y *YouzanAppStoreOpenTradeCreateRequest) GetApiVersion() string {
 	return "1.0.2"
 }
-func (y *youzanAppStoreOpenTradeCreateRequest) GetParam() map[string]string {
+func (y *YouzanAppStoreOpenTradeCreateRequest) GetParam() map[string]string {
 	return nil
 }
-func (y *youzanAppStoreOpenTradeCreateRequest) GetBodyParam() interface{} {
+func (y *YouzanAppStoreOpenTradeCreateRequest) GetBodyParam() interface{} {
 	param := make(map[string]interface{}, 0)
 	if y.KdtID > 0 {
 		param["kdt_id"] = y.KdtID
@@ -54,12 +54,12 @@ func (y *youzanAppStoreOpenTradeCreateRequest) GetBodyParam() interface{} {
 	return param
 }
 
-func (y *youzanAppStoreOpenTradeCreateRequest) GetUrlValues() url.Values {
+func (y *YouzanAppStoreOpenTradeCreateRequest) GetUrlValues() url.Values {
 	u := url.Values{}
 	return u
 }
 
-func (y *youzanAppStoreOpenTradeCreateRequest) CheckParam() error {
+func (y *YouzanAppStoreOpenTradeCreateRequest) CheckParam() error {
 	if y.AppID < 1 {
 		return errors.New("app_id应用编号必传")
 	}
@@ -72,6 +72,6 @@ func (y *youzanAppStoreOpenTradeCreateRequest) CheckParam() error {
 	return nil
 }
 
-func (y *youzanAppStoreOpenTradeCreateRequest) GetRequestUrl(token string) string {
+func (y *YouzanAppStoreOpenTradeCreateRequest) GetRequestUrl(token string) string {
 	return fmt.Sprintf(apiRequestPath, youzanApiBaseUrl, y.GetApiName(), y.GetApiVersion(), token)
 }
