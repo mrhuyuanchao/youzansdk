@@ -21,7 +21,7 @@ func (y *YouzanShopBasicGetRequest) GetApiVersion() string {
 	return "3.0.0"
 }
 func (y *YouzanShopBasicGetRequest) GetParam() map[string]string {
-	return nil
+	return map[string]string{}
 }
 // GetBodyParam 组装请求POST参数
 func (y *YouzanShopBasicGetRequest) GetBodyParam() interface{} {

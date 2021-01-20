@@ -24,7 +24,7 @@ func (y *YouzanCrmCustomerPointsGetRequest) GetApiVersion() string {
 	return "4.0.0"
 }
 func (y *YouzanCrmCustomerPointsGetRequest) GetParam() map[string]string {
-	return nil
+	return map[string]string{}
 }
 func (y *YouzanCrmCustomerPointsGetRequest) GetBodyParam() interface{} {
 	param := make(map[string]interface{}, 0)

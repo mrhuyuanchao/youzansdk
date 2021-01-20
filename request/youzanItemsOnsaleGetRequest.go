@@ -27,7 +27,7 @@ func (y *YouzanItemsOnsaleGetRequest) GetApiVersion() string {
 	return "3.0.0"
 }
 func (y *YouzanItemsOnsaleGetRequest) GetParam() map[string]string {
-	return nil
+	return map[string]string{}
 }
 func (y *YouzanItemsOnsaleGetRequest) GetBodyParam() interface{} {
 	param := make(map[string]interface{}, 0)

@@ -21,7 +21,7 @@ func (y *YouzanTradeGetRequest) GetApiVersion() string {
 	return "4.0.0"
 }
 func (y *YouzanTradeGetRequest) GetParam() map[string]string {
-	return nil
+	return map[string]string{}
 }
 func (y *YouzanTradeGetRequest) GetBodyParam() interface{} {
 	param := make(map[string]interface{}, 0)

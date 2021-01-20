@@ -36,7 +36,7 @@ func (y *YouzanTokenRequest) GetApiVersion() string {
 	return ""
 }
 func (y *YouzanTokenRequest) GetParam() map[string]string {
-	return nil
+	return map[string]string{}
 }
 func (y *YouzanTokenRequest) GetBodyParam() interface{} {
 	param := make(map[string]interface{}, 0)

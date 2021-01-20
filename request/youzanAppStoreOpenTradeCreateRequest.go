@@ -27,7 +27,7 @@ func (y *YouzanAppStoreOpenTradeCreateRequest) GetApiVersion() string {
 	return "1.0.2"
 }
 func (y *YouzanAppStoreOpenTradeCreateRequest) GetParam() map[string]string {
-	return nil
+	return map[string]string{}
 }
 func (y *YouzanAppStoreOpenTradeCreateRequest) GetBodyParam() interface{} {
 	param := make(map[string]interface{}, 0)

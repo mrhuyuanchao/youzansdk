@@ -23,7 +23,7 @@ func (y *YouzanCloudSecurityImageQueryRequest) GetApiVersion() string {
 	return "1.0.0"
 }
 func (y *YouzanCloudSecurityImageQueryRequest) GetParam() map[string]string {
-	return nil
+	return map[string]string{}
 }
 func (y *YouzanCloudSecurityImageQueryRequest) GetBodyParam() interface{} {
 	param := make(map[string]interface{}, 0)

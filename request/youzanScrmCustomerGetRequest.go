@@ -20,7 +20,7 @@ func (y *YouzanScrmCustomerGetRequest) GetApiVersion() string {
 	return "3.1.0"
 }
 func (y *YouzanScrmCustomerGetRequest) GetParam() map[string]string {
-	return nil
+	return map[string]string{}
 }
 func (y *YouzanScrmCustomerGetRequest) GetBodyParam() interface{} {
 	param := make(map[string]interface{}, 0)

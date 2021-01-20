@@ -28,7 +28,7 @@ func (y *YouzanAppStoreOpenSubscribeQueryRequest) GetApiVersion() string {
 	return "1.0.0"
 }
 func (y *YouzanAppStoreOpenSubscribeQueryRequest) GetParam() map[string]string {
-	return nil
+	return map[string]string{}
 }
 func (y *YouzanAppStoreOpenSubscribeQueryRequest) GetBodyParam() interface{} {
 	param := make(map[string]interface{}, 0)

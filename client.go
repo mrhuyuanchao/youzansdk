@@ -39,6 +39,9 @@ func (c YouzanClient) Execute(request request.BaseRequest, v interface{}) (strin
 	var err error
 	if request.GetMethod() != "POSTFORM" {
 		param := request.GetParam()
+		if nil == param {
+			param = map[string]string{}
+		}
 		param["access_token"] = c.Token
 		response, err = utils.HTTP(url, request.GetMethod(), request.GetBodyParam(), param, nil)
 	} else {
@@ -57,4 +60,3 @@ func (c YouzanClient) Execute(request request.BaseRequest, v interface{}) (strin
 
 	return string(responseBody), err
 }
-

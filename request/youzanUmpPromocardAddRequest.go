@@ -51,7 +51,7 @@ func (y *YouzanUmpPromocardAddRequest) GetApiVersion() string {
 	return "3.0.0"
 }
 func (y *YouzanUmpPromocardAddRequest) GetParam() map[string]string {
-	return nil
+	return map[string]string{}
 }
 func (y *YouzanUmpPromocardAddRequest) GetBodyParam() interface{} {
 	param := make(map[string]interface{}, 0)

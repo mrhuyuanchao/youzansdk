@@ -24,7 +24,7 @@ func (y *YouzanItemQuantityUpdateRequest) GetApiVersion() string {
 	return "3.0.0"
 }
 func (y *YouzanItemQuantityUpdateRequest) GetParam() map[string]string {
-	return nil
+	return map[string]string{}
 }
 func (y *YouzanItemQuantityUpdateRequest) GetBodyParam() interface{} {
 	param := make(map[string]interface{}, 0)
