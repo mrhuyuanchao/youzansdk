@@ -22,7 +22,7 @@ func HTTP(requestUrl, method string, body interface{}, params map[string]string,
 		}
 		fmt.Println(string(bodyJSON))
 	}
-
+	fmt.Println(requestUrl)
 	req, err := http.NewRequest(method, requestUrl, bytes.NewBuffer(bodyJSON))
 	if err != nil {
 		return nil, errors.New("new request is fail")
