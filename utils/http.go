@@ -20,7 +20,7 @@ func HTTP(requestUrl, method string, body interface{}, params map[string]string,
 		if err != nil {
 			return nil, errors.New("http post body to json fail")
 		}
-		fmt.Println(bodyJSON)
+		fmt.Println(string(bodyJSON))
 	}
 
 	req, err := http.NewRequest(method, requestUrl, bytes.NewBuffer(bodyJSON))
