@@ -8,7 +8,7 @@ import (
 
 // YouzanTokenRequest ...
 type YouzanTokenRequest struct {
-	//'client_id' => $this->clientId,
+	// 'client_id' => $this->clientId,
 	//            'client_secret' => $this->clientSecret,
 	// 'authorize_type' => 'silent',
 	//            'grant_id' => $authorityId,
@@ -40,6 +40,8 @@ func (y *YouzanTokenRequest) GetParam() map[string]string {
 }
 func (y *YouzanTokenRequest) GetBodyParam() interface{} {
 	param := make(map[string]interface{}, 0)
+	param["client_id"] = y.ClientID
+	param["client_secret"] = y.ClientSecret
 	switch y.AuthorizeType {
 	case "authorization_code":
 		param["authorize_type"] = y.AuthorizeType
