@@ -43,6 +43,8 @@ func (c YouzanClient) Execute(request request.BaseRequest, v interface{}) (strin
 			param = map[string]string{}
 		}
 		param["access_token"] = c.Token
+
+		url = fmt.Sprintf("%s?access_token=%s", url, c.Token)
 		response, err = utils.HTTP(url, request.GetMethod(), request.GetBodyParam(), param, nil)
 	} else {
 		url = fmt.Sprintf("%s?access_token=%s", url, c.Token)
