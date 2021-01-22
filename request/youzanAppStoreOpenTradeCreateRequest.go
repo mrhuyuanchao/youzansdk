@@ -9,7 +9,7 @@ import (
 // YouzanAppStoreOpenTradeCreateRequest 用于创建应用内购订单
 type YouzanAppStoreOpenTradeCreateRequest struct {
 	KdtID      int64
-	UserID     string
+	UserID     int64
 	Num        int
 	OutItemID  string
 	BuyerPhone string
@@ -37,7 +37,7 @@ func (y *YouzanAppStoreOpenTradeCreateRequest) GetBodyParam() interface{} {
 	if y.ClientID != "" {
 		param["client_id"] = y.ClientID
 	}
-	if y.UserID != "" {
+	if y.UserID > 0 {
 		param["user_id"] = y.UserID
 	}
 	if y.Num > 0 {
@@ -66,7 +66,7 @@ func (y *YouzanAppStoreOpenTradeCreateRequest) CheckParam() error {
 	if y.OutItemID == "" {
 		return errors.New("out_item_id外部商品ID必传")
 	}
-	if y.UserID == "" && y.BuyerPhone == "" {
+	if y.UserID < 1 && y.BuyerPhone == "" {
 		return errors.New("user_id和buyer_phone不能同时为空")
 	}
 	return nil
