@@ -41,9 +41,12 @@ func (y *YouzanCrmCustomerPointsIncreaseRequest) GetBodyParam() interface{} {
 	}
 	param["kdt_id"] = y.KdtID
 	param["points"] = y.Points
-	param["user"] = y.User
+	param["user"] = map[string]interface{}{
+		"account_id":   y.User.AccountID,
+		"account_type": y.User.AccountType,
+	}
 	param["client_id"] = y.ClientID
-	return param
+	return map[string]interface{}{"params": param}
 }
 
 func (y *YouzanCrmCustomerPointsIncreaseRequest) GetUrlValues() url.Values {
