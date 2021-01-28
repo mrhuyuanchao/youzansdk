@@ -39,6 +39,7 @@ func (y *YouzanCrmCustomerPointsIncreaseRequest) GetBodyParam() interface{} {
 	} else {
 		param["biz_value"] = time.Now().UnixNano()
 	}
+	param["reason"] = y.Reason
 	param["kdt_id"] = y.KdtID
 	param["points"] = y.Points
 	param["user"] = map[string]interface{}{
