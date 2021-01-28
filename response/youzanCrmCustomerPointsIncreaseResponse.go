@@ -4,6 +4,6 @@ package response
 type YouzanCrmCustomerPointsIncreaseResponse struct {
 	baseResponse
 	Data struct {
-		IsSuccess bool `json:"is_success"`
+		IsSuccess string `json:"is_success"`
 	} `json:"data"`
 }
