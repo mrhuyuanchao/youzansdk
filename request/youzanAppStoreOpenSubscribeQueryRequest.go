@@ -17,7 +17,7 @@ type YouzanAppStoreOpenSubscribeQueryRequest struct {
 	PageNO   int32
 	PageSize int8
 }
-
+var cstZone = time.FixedZone("CST", 8*3600) // 东八
 func (y *YouzanAppStoreOpenSubscribeQueryRequest) GetMethod() string {
 	return "POST"
 }
@@ -25,7 +25,7 @@ func (y *YouzanAppStoreOpenSubscribeQueryRequest) GetApiName() string {
 	return "youzan.appstore.open.subscribe.query"
 }
 func (y *YouzanAppStoreOpenSubscribeQueryRequest) GetApiVersion() string {
-	return "1.0.0"
+	return "1.0.1"
 }
 func (y *YouzanAppStoreOpenSubscribeQueryRequest) GetParam() map[string]string {
 	return map[string]string{}
@@ -46,7 +46,10 @@ func (y *YouzanAppStoreOpenSubscribeQueryRequest) GetBodyParam() interface{} {
 		param["page_size"] = 30
 	}
 	if y.StartTime > 0 {
-		param["start_time"] = time.Unix(y.StartTime, 0).Format("2006-01-02 15:04:05")
+		param["start_time"] = time.Unix(y.StartTime, 0).In(cstZone).Format("2006-01-02 15:04:05")
+	}
+	if y.EndTime > 0 {
+		param["end_time"] = time.Unix(y.EndTime, 0).In(cstZone).Format("2006-01-02 15:04:05")
 	}
 	return param
 }
