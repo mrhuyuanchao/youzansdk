@@ -7,7 +7,8 @@ type YouzanAppStoreOpenSubscribeQueryResponse struct {
 	baseResponse
 	Data struct {
 		TotalCount int64 `json:"total_count"`
-		Details    struct {
+		Details    []struct {
+			OrderType int `json:"order_type"`
 			// InnerItemPurchaseNotifyMessageList inner_item_purchase_notify_message_list
 			InnerItemPurchaseNotifyMessageList []domain.SubscribeItem `json:"inner_item_purchase_notify_message_list"`
 			// AppSubscribeNotifyMessage app_subscribe_notify_message
