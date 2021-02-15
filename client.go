@@ -57,6 +57,7 @@ func (c YouzanClient) Execute(request request.BaseRequest, v interface{}) (strin
 	if err != nil {
 		return "", errors.New("read response body fail")
 	}
+	println(fmt.Sprintf("youzansdk response:%s", string(responseBody)))
 	err = json.Unmarshal(responseBody, v)
 
 	return string(responseBody), err
