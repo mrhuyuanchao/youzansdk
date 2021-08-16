@@ -17,6 +17,7 @@ type YouzanAppStoreOpenSubscribeQueryRequest struct {
 	PageNO   int32
 	PageSize int8
 }
+
 var cstZone = time.FixedZone("CST", 8*3600) // 东八
 func (y *YouzanAppStoreOpenSubscribeQueryRequest) GetMethod() string {
 	return "POST"
