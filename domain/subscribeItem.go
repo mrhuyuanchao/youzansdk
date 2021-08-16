@@ -6,6 +6,7 @@ type SubscribeItem struct {
 	//订购店铺id
 	//18163424
 	KdtID int64 `json:"kdt_id"`
+	Env string `json:"env"`
 	//effect_time
 	//java.lang.Long
 	//生效时间， Unix时间戳，单位：毫秒
@@ -50,7 +51,7 @@ type SubscribeItem struct {
 	//java.lang.String
 	//订购店铺编号
 	//48567648
-	ShopDisPlayNo string `json:"shop_dis_play_no"`
+	ShopDisPlayNo string `json:"shop_display_no"`
 	//out_item_id
 	//java.lang.String
 	//外部商品编码
@@ -60,9 +61,11 @@ type SubscribeItem struct {
 	//java.lang.String
 	//订单编号
 	//E20190509181910080300061
-	OrderNO string `json:"order_no"`
+	OrderNO string `json:"tid"`
 	// SkuIntervalText sku_interval_text
 	SkuIntervalText string `json:"sku_interval_text"`
 	// SkuVersionText sku_version_text
 	SkuVersionText string `json:"sku_version_text"`
+	// 订购类型；APP_SUBSCRIBE-应用订购； INNER_SUBSCRIBE-内购项订购； APP_AUTH-应用授权； APP_PURCHASE-应用订购（新）
+	Type string `json:"type"`
 }

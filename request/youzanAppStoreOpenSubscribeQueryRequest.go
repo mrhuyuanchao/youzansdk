@@ -25,7 +25,7 @@ func (y *YouzanAppStoreOpenSubscribeQueryRequest) GetApiName() string {
 	return "youzan.appstore.open.subscribe.query"
 }
 func (y *YouzanAppStoreOpenSubscribeQueryRequest) GetApiVersion() string {
-	return "1.0.1"
+	return "1.0.2"
 }
 func (y *YouzanAppStoreOpenSubscribeQueryRequest) GetParam() map[string]string {
 	return map[string]string{}
@@ -33,7 +33,7 @@ func (y *YouzanAppStoreOpenSubscribeQueryRequest) GetParam() map[string]string {
 func (y *YouzanAppStoreOpenSubscribeQueryRequest) GetBodyParam() interface{} {
 	param := make(map[string]interface{}, 0)
 	if y.OrderNO != "" {
-		param["order_no"] = y.OrderNO
+		param["tid"] = y.OrderNO
 	}
 	if y.PageNO > 0 {
 		param["page_no"] = y.PageNO
