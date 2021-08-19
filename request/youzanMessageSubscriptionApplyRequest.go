@@ -9,6 +9,7 @@ import (
 type YouzanMessageSubscriptionApplyRequest struct {
 	OpenUserID string
 	Params     map[string]string
+	Page string
 }
 
 func (y *YouzanMessageSubscriptionApplyRequest) GetMethod() string {
@@ -30,6 +31,7 @@ func (y *YouzanMessageSubscriptionApplyRequest) GetBodyParam() interface{} {
 	var j = make(map[string]interface{})
 	j["template_param_map"] = y.Params
 	j["yz_open_id"] = y.OpenUserID
+	j["page"] = y.Page
 	param["request"] = j
 	return param
 }
@@ -41,7 +43,6 @@ func (y *YouzanMessageSubscriptionApplyRequest) GetUrlValues() url.Values {
 
 // CheckParam 检查参数正确性
 func (y *YouzanMessageSubscriptionApplyRequest) CheckParam() error {
-
 	return nil
 }
 
